@@ -1,3 +1,8 @@
+/**
+ * Buscar LuzRight 
+ * si  el nivel de luz es mayor de 70 para de buscar y retorna true
+ * 
+ */
 function buscarLuzRight (leftRight: boolean) {
     for (let index = 0; index <= 10; index++) {
         // serial.writeLine("Mov1: " + input.lightLevel())
@@ -16,6 +21,12 @@ function buscarLuzRight (leftRight: boolean) {
     }
     return false
 }
+
+/**
+ * Buscar Luz
+ * Dependiendo del paramtero direccion busca la luz en Left o en Right
+ * 
+ */
 function buscarLuz (direccion: number) {
     if (direccion == 1) {
         if (!(buscarLuzRight(true))) {
@@ -35,6 +46,7 @@ function buscarLuz (direccion: number) {
         }
     }
 }
+
 function buscarLuzLeft (leftRight: boolean) {
     for (let index2 = 0; index2 <= 10; index2++) {
         // serial.writeLine("Mov1: " + input.lightLevel())
@@ -68,6 +80,7 @@ basic.forever(function () {
         maqueenPlusV2.ledBlank()
     } else if (input.lightLevel() > 80 && input.lightLevel() < 100) {
         direccion = randint(1, 2)
+        //serial.writeLine("Direccion: " + direccion)
         buscarLuz(direccion)
     } else if (input.lightLevel() < 50) {
         maqueenPlusV2.controlMotorStop(maqueenPlusV2.MyEnumMotor.AllMotor)
