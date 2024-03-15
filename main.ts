@@ -47,6 +47,11 @@ function buscarLuz (direccion: number) {
     }
 }
 
+/**
+ * Buscar LuzLeft
+ * si  el nivel de luz es mayor de 70 para de buscar y retorna true
+ *
+ */
 function buscarLuzLeft (leftRight: boolean) {
     for (let index2 = 0; index2 <= 10; index2++) {
         // serial.writeLine("Mov1: " + input.lightLevel())
@@ -67,15 +72,14 @@ function buscarLuzLeft (leftRight: boolean) {
     maqueenPlusV2.controlMotorStop(maqueenPlusV2.MyEnumMotor.AllMotor)
     return false
 }
-let VELOCIDAD = 0
-let VELOCIDAD_FORWARD = 0
-let direccion: number
+let VELOCIDAD = 0 // Velocidad para cuando el robot gira para buscar la luz
+let VELOCIDAD_FORWARD = 0 // Velocidad cuando el robot encuentra la luz y avanza hacia la misma
+let direccion: number // Si el valor es 1 busca primero en Right, si es 2 busca primero en Left
 maqueenPlusV2.I2CInit()
 basic.forever(function () {
     // serial.writeLine("Luz: " + input.lightLevel())
     if (input.lightLevel() > 100) {
-        let VELOCIDAD_FORWARD2 = 0
-        maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.AllMotor, maqueenPlusV2.MyEnumDir.Forward, VELOCIDAD_FORWARD2)
+        maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.AllMotor, maqueenPlusV2.MyEnumDir.Forward, VELOCIDAD_FORWARD)
         maqueenPlusV2.controlLED(maqueenPlusV2.MyEnumLed.AllLed, maqueenPlusV2.MyEnumSwitch.Open)
         maqueenPlusV2.ledBlank()
     } else if (input.lightLevel() > 80 && input.lightLevel() < 100) {
