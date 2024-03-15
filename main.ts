@@ -62,7 +62,7 @@ function buscarLuzLeft (leftRight: boolean) {
     return false
 }
 let VELOCIDAD = 0
-let direccion: number
+let direccion
 maqueenPlusV2.I2CInit()
 basic.forever(function () {
     // serial.writeLine("Luz: " + input.lightLevel())
