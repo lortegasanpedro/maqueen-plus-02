@@ -56,14 +56,14 @@ function buscarLuzLeft (leftRight: boolean) {
     return false
 }
 let VELOCIDAD = 0
-VELOCIDAD = 80
-let VELOCIDAD_FORWARD = 50
+let VELOCIDAD_FORWARD = 0
 let direccion: number
 maqueenPlusV2.I2CInit()
 basic.forever(function () {
     // serial.writeLine("Luz: " + input.lightLevel())
     if (input.lightLevel() > 100) {
-        maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.AllMotor, maqueenPlusV2.MyEnumDir.Forward, VELOCIDAD_FORWARD)
+        let VELOCIDAD_FORWARD2 = 0
+        maqueenPlusV2.controlMotor(maqueenPlusV2.MyEnumMotor.AllMotor, maqueenPlusV2.MyEnumDir.Forward, VELOCIDAD_FORWARD2)
         maqueenPlusV2.controlLED(maqueenPlusV2.MyEnumLed.AllLed, maqueenPlusV2.MyEnumSwitch.Open)
         maqueenPlusV2.ledBlank()
     } else if (input.lightLevel() > 80 && input.lightLevel() < 100) {
