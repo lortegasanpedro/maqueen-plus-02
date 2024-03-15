@@ -1,4 +1,3 @@
-
 // Buscar LuzRight
 // si  el nivel de luz es mayor de 70 para de buscar y retorna true
 function buscarLuzRight (leftRight: boolean) {
@@ -62,15 +61,9 @@ function buscarLuzLeft (leftRight: boolean) {
     maqueenPlusV2.controlMotorStop(maqueenPlusV2.MyEnumMotor.AllMotor)
     return false
 }
- 
- // Velocidad para cuando el robot gira para buscar la luz
 let VELOCIDAD = 0
-
-// let direccion Si el valor es 1 busca primero en Right, si es 2 busca primero en Left
 let direccion: number
-
 maqueenPlusV2.I2CInit()
-
 basic.forever(function () {
     // serial.writeLine("Luz: " + input.lightLevel())
     if (input.lightLevel() > 100) {
